@@ -16,14 +16,10 @@ library(foreign);library(lmtest);library(car);library(sandwich);library(ggplot2)
 
 # INFORME A LOCALIZAÇÃO DA PASTA ONDE ESTÁ OS DADOS BAIXADOS EM CSV.
 setwd("D:/Google Drive/Engenharia Civil/Atividades Docente/Pesquisa/Para Publicação/1. Gestão da Aprendizagem/Desenvolvimento")
-# INFORME O NOME DO ARQUIVO CSV.
+# INFORME O NOME DO ARQUIVO CSV DA AVALIAÇÃO DIAGNÓSTICA SOCIOEMOCIONAL (APÊNDICE A)
 dados <- read.csv2("ADS - MecGeral.csv", header = TRUE, stringsAsFactors = FALSE, sep = "," , dec = ".")
-dados<-dados[,-c(1,2,3,4,5,6)]
-
 
 # Substitui os indicadores qualitativos por escores.
-names(dados)[1:32] <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32)
-
 j <- seq(1,32)
 for (i in j){
   dados[,i][dados[,i] == "Concordo totalmente"] <- 5
